@@ -1,8 +1,8 @@
-package alkemy.Disney2.Disney2.repository.specifications;
+package com.ferraro.alkemy.disney.repository.specifications;
 
-import alkemy.Disney2.Disney2.dto.IconFiltersDTO;
-import alkemy.Disney2.Disney2.entity.CiudadEntity;
-import alkemy.Disney2.Disney2.entity.IconEntity;
+import com.ferraro.alkemy.disney.dto.IconFiltersDTO;
+import com.ferraro.alkemy.disney.entity.CiudadEntity;
+import com.ferraro.alkemy.disney.entity.IconEntity;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;

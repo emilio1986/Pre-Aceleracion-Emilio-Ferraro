@@ -1,6 +1,6 @@
-package alkemy.Disney2.Disney2.service;
+package com.ferraro.alkemy.disney.service;
 
-import alkemy.Disney2.Disney2.dto.ContinenteDTO;
+import com.ferraro.alkemy.disney.dto.ContinenteDTO;
 
 import java.util.List;
 

@@ -1,8 +1,8 @@
-package alkemy.Disney2.Disney2.controller;
+package com.ferraro.alkemy.disney.controller;
 
-import alkemy.Disney2.Disney2.dto.CiudadBasicDTO;
-import alkemy.Disney2.Disney2.dto.CiudadDTO;
-import alkemy.Disney2.Disney2.service.CiudadService;
+import com.ferraro.alkemy.disney.dto.CiudadBasicDTO;
+import com.ferraro.alkemy.disney.dto.CiudadDTO;
+import com.ferraro.alkemy.disney.service.CiudadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

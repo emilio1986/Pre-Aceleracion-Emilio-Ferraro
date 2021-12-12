@@ -1,10 +1,10 @@
-package alkemy.Disney2.Disney2.mapper;
+package com.ferraro.alkemy.disney.mapper;
 
 
-import alkemy.Disney2.Disney2.dto.CiudadDTO;
-import alkemy.Disney2.Disney2.dto.ContinenteDTO;
-import alkemy.Disney2.Disney2.entity.CiudadEntity;
-import alkemy.Disney2.Disney2.entity.ContinenteEntity;
+import com.ferraro.alkemy.disney.dto.CiudadDTO;
+import com.ferraro.alkemy.disney.dto.ContinenteDTO;
+import com.ferraro.alkemy.disney.entity.CiudadEntity;
+import com.ferraro.alkemy.disney.entity.ContinenteEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

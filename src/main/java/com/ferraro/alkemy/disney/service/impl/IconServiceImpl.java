@@ -1,13 +1,13 @@
-package alkemy.Disney2.Disney2.service.impl;
+package com.ferraro.alkemy.disney.service.impl;
 
-import alkemy.Disney2.Disney2.dto.IconBasicDTO;
-import alkemy.Disney2.Disney2.dto.IconDTO;
-import alkemy.Disney2.Disney2.dto.IconFiltersDTO;
-import alkemy.Disney2.Disney2.entity.IconEntity;
-import alkemy.Disney2.Disney2.mapper.IconMapper;
-import alkemy.Disney2.Disney2.repository.IconRepository;
-import alkemy.Disney2.Disney2.repository.specifications.IconSpecification;
-import alkemy.Disney2.Disney2.service.IconService;
+import com.ferraro.alkemy.disney.dto.IconBasicDTO;
+import com.ferraro.alkemy.disney.dto.IconDTO;
+import com.ferraro.alkemy.disney.dto.IconFiltersDTO;
+import com.ferraro.alkemy.disney.entity.IconEntity;
+import com.ferraro.alkemy.disney.mapper.IconMapper;
+import com.ferraro.alkemy.disney.repository.IconRepository;
+import com.ferraro.alkemy.disney.repository.specifications.IconSpecification;
+import com.ferraro.alkemy.disney.service.IconService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;

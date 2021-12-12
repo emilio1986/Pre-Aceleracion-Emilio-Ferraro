@@ -1,8 +1,8 @@
-package alkemy.Disney2.Disney2.service;
+package com.ferraro.alkemy.disney.service;
 
-import alkemy.Disney2.Disney2.dto.CiudadBasicDTO;
-import alkemy.Disney2.Disney2.dto.CiudadDTO;
-import alkemy.Disney2.Disney2.entity.CiudadEntity;
+import com.ferraro.alkemy.disney.dto.CiudadBasicDTO;
+import com.ferraro.alkemy.disney.dto.CiudadDTO;
+import com.ferraro.alkemy.disney.entity.CiudadEntity;
 
 import java.util.List;
 

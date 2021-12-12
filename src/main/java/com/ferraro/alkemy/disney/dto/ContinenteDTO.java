@@ -1,4 +1,4 @@
-package alkemy.Disney2.Disney2.dto;
+package com.ferraro.alkemy.disney.dto;
 
 //clase pelada que nos va a servir para manejar informacion
 

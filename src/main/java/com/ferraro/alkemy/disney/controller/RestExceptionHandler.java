@@ -1,7 +1,7 @@
-package alkemy.Disney2.Disney2.controller;
+package com.ferraro.alkemy.disney.controller;
 
-import alkemy.Disney2.Disney2.dto.ApiErrorDTO;
-import alkemy.Disney2.Disney2.exceptions.ParamNotFound;
+import com.ferraro.alkemy.disney.dto.ApiErrorDTO;
+import com.ferraro.alkemy.disney.exceptions.ParamNotFound;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

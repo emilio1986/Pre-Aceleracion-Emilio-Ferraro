@@ -1,11 +1,11 @@
-package alkemy.Disney2.Disney2.service.impl;
+package com.ferraro.alkemy.disney.service.impl;
 
-import alkemy.Disney2.Disney2.dto.ContinenteDTO;
-import alkemy.Disney2.Disney2.entity.ContinenteEntity;
-import alkemy.Disney2.Disney2.mapper.ContinenteMapper;
-import alkemy.Disney2.Disney2.repository.ContinenteRepository;
-import alkemy.Disney2.Disney2.service.CiudadService;
-import alkemy.Disney2.Disney2.service.ContinenteService;
+import com.ferraro.alkemy.disney.dto.ContinenteDTO;
+import com.ferraro.alkemy.disney.entity.ContinenteEntity;
+import com.ferraro.alkemy.disney.mapper.ContinenteMapper;
+import com.ferraro.alkemy.disney.repository.ContinenteRepository;
+import com.ferraro.alkemy.disney.service.CiudadService;
+import com.ferraro.alkemy.disney.service.ContinenteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;

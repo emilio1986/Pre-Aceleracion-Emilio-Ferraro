@@ -1,7 +1,7 @@
-package alkemy.Disney2.Disney2.repository;
+package com.ferraro.alkemy.disney.repository;
 
 
-import alkemy.Disney2.Disney2.entity.IconEntity;
+import com.ferraro.alkemy.disney.entity.IconEntity;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

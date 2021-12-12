@@ -1,9 +1,9 @@
-package alkemy.Disney2.Disney2.mapper;
+package com.ferraro.alkemy.disney.mapper;
 
-import alkemy.Disney2.Disney2.dto.CiudadDTO;
-import alkemy.Disney2.Disney2.dto.IconBasicDTO;
-import alkemy.Disney2.Disney2.dto.IconDTO;
-import alkemy.Disney2.Disney2.entity.IconEntity;
+import com.ferraro.alkemy.disney.dto.CiudadDTO;
+import com.ferraro.alkemy.disney.dto.IconBasicDTO;
+import com.ferraro.alkemy.disney.dto.IconDTO;
+import com.ferraro.alkemy.disney.entity.IconEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
