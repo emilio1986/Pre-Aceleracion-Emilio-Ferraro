@@ -68,12 +68,12 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
-    public MovieDTO update(Long id, MovieDTO ciudad) {
+    public MovieDTO update(Long id, MovieDTO movie) {
         Optional<MovieEntity> entity = this.movieRepository.findById(id);
-        // if (!entity.isPresent()) {
-        //   throw new ParamNotFound("city id not valid");
-        //}
-        this.movieMapper.movieEntityRefreshValues(entity.get(), ciudad);
+        //if (!entity.isPresent()) {
+        //throw new ParamNotFound("city id not valid");
+        // }
+        this.movieMapper.movieEntityRefreshValues(entity.get(), movie);
         MovieEntity updatedEntity = this.movieRepository.save(entity.get());
         MovieDTO result = this.movieMapper.movieEntity2DTO(updatedEntity, true);
         return result;
@@ -81,10 +81,10 @@ public class MovieServiceImpl implements MovieService {
 
 
     @Override
-    public void addCharacter(Long id, Long idIcon) {
+    public void addCharacter(Long id, Long idCharacter) {
         MovieEntity entity = this.movieRepository.getById(id);
         entity.getCharacters().size();
-        CharacterEntity characterEntity = this.characterService.getEntityById(idIcon);
+        CharacterEntity characterEntity = this.characterService.getEntityById(idCharacter);
         entity.addCharacter(characterEntity);
         this.movieRepository.save(entity);
     }
@@ -92,7 +92,7 @@ public class MovieServiceImpl implements MovieService {
 
     public void removeCharacter(Long id, Long idIcon) {
         MovieEntity entity = this.movieRepository.getById(id);
-        entity.getCharacters().size();
+        //entity.getCharacters().size();
         CharacterEntity characterEntity = this.characterService.getEntityById(idIcon);
         entity.removeCharacter(characterEntity);
         this.movieRepository.save(entity);

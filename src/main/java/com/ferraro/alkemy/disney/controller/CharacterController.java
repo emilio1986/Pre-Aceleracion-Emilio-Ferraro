@@ -55,10 +55,10 @@ public class CharacterController {
 
     @GetMapping
     public ResponseEntity<List<CharacterDTO>> getDetailsByFilters(
-                                                                                 @RequestParam(required = false) String name,
-                                                                                 @RequestParam(required = false) String date,
-                                                                                 @RequestParam(required = false) Set<Long> cities,
-                                                                                 @RequestParam(required = false, defaultValue = "ASC") String order) {
+            @RequestParam(required = false) String name,
+            @RequestParam(required = false) String date,
+            @RequestParam(required = false) Set<Long> cities,
+            @RequestParam(required = false, defaultValue = "ASC") String order) {
         List<CharacterDTO> icons = this.characterService.getByFilters(name, date, cities, order);
         return ResponseEntity.ok(icons);
     }
@@ -70,14 +70,8 @@ public class CharacterController {
     //}
 
 
-    //@GetMapping
-    //public ResponseEntity<List<IconBasicDTO>> getAll() {
-    //List<IconBasicDTO> icons = this.iconService.getAllB();
-    //return ResponseEntity.ok(icons);
-    //}
-
-
-    @GetMapping("/all")                                 //PASS
+    @GetMapping("/all")
+        //PASS
     ResponseEntity<List<CharacterDTO>> getAll() {
         List<CharacterDTO> icons = this.characterService.getAll();
         return ResponseEntity.ok(icons);

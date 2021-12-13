@@ -20,9 +20,10 @@ public interface CharacterService {
     CharacterDTO update(Long id, CharacterDTO icon);
 
 
-    void delete(Long id);
+   void delete(Long id);
 
-    CharacterEntity getEntityById(Long idIcon);
+
+    CharacterEntity getEntityById(Long idCharacter);
 
     List<CharacterDTO> getByFilters(String name, String date, Set<Long> cities, String order);
 }

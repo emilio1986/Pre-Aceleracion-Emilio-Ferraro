@@ -11,7 +11,6 @@ import java.util.Set;
 @Setter
 
 
-@NoArgsConstructor
 public class MovieBasicDTO {
     private Long id;
     private String title;

@@ -66,9 +66,9 @@ public class CharacterServiceImpl implements CharacterService {
     public CharacterDTO save(CharacterDTO characterDTO) {
 
         CharacterEntity entity = characterMapper.characterDTO2Entity(characterDTO);
-        CharacterEntity entidadGuardada = characterRepository.save(entity);
+        CharacterEntity savedEntity = characterRepository.save(entity);
         CharacterDTO result;
-        result = characterMapper.characterEntity2DTO(entidadGuardada, true);
+        result = characterMapper.characterEntity2DTO(savedEntity, true);
         return result;
 
     }
@@ -85,7 +85,6 @@ public class CharacterServiceImpl implements CharacterService {
         return result;
     }
 
-
     @Override
     public void delete(Long id) {
 
@@ -94,8 +93,9 @@ public class CharacterServiceImpl implements CharacterService {
     }
 
     @Override
-    public CharacterEntity getEntityById(Long idIcon) {
-        return this.characterRepository.getById(idIcon);
+    public CharacterEntity getEntityById(Long idCharacter) {
+        return this.characterRepository.getById(idCharacter
+        );
     }
 
     @Override

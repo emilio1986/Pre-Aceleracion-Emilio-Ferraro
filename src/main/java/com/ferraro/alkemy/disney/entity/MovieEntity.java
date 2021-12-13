@@ -55,7 +55,7 @@ public class MovieEntity {
             joinColumns = @JoinColumn(name = "movie_id"),                       //como joinea de este lado
             inverseJoinColumns = @JoinColumn(name = "character_id"))           // como joinea del otro lado(Icon)
 
-    private Set<CharacterEntity> characters = new HashSet<>();
+    private Set<CharacterEntity> characters = new HashSet<CharacterEntity>();
 
     @Override
     public boolean equals(Object obj) {
@@ -74,13 +74,7 @@ public class MovieEntity {
         this.characters.add(characterEntity);
     }
 
-    //CONSIDERAR UN SET DATE COMO TENIA EN ICON->CHARACTER
-    //
-    // public void setDate(LocalDate unaFecha) {
-    //
-    //        this.date = unaFecha;
-    //
-    //    }
+
 }
 
 

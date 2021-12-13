@@ -9,7 +9,7 @@ import lombok.Setter;
 public class CharacterBasicDTO {
 
     private Long id;
-    private String imagen;
-    private String denominacion;
+    private String image;
+    private String name;
 
 }

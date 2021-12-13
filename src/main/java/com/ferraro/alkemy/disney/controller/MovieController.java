@@ -45,9 +45,9 @@ public class MovieController {
 
     }
 
-    @PostMapping("/{id}/icons/{idIcon}")
-    public ResponseEntity<Void> addIcon(@PathVariable Long id, @PathVariable Long idIcon) {    //PASS
-        this.movieService.addCharacter(id, idIcon);
+    @PostMapping("/{id}/characters/{idCharacter}")           //ojo los nombres->ICon
+    public ResponseEntity<Void> addCharacter(@PathVariable Long id, @PathVariable Long idCharacter) {    //PASS
+        this.movieService.addCharacter(id, idCharacter);
         return ResponseEntity.status(HttpStatus.CREATED).build();
 
     }

@@ -103,9 +103,8 @@ public class MovieMapper {
 
     public void movieEntityRefreshValues(MovieEntity entity, MovieDTO dto) {
         entity.setTitle(dto.getTitle());
-
         entity.setRating(dto.getRating());
-        entity.setGenreId(dto.getGenreId());
+        entity.setGenreId(dto.getGenreId());    //consider to NOT UPDATE
         entity.setImage(dto.getImage());
     }
 

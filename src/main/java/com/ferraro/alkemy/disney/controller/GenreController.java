@@ -21,21 +21,21 @@ public class GenreController {
     //tipo de solicitud
     @PostMapping
     public ResponseEntity<GenreDTO> save(@RequestBody GenreDTO continente) {              //PASS
-        GenreDTO continenteGuardado = genreService.save(continente);
-        return ResponseEntity.status(HttpStatus.CREATED).body(continenteGuardado);
+        GenreDTO savedGenre = genreService.save(continente);
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedGenre);
     }
 
     @GetMapping
     public ResponseEntity<List<GenreDTO>> getAll() {
 
-        List<GenreDTO> continentes = this.genreService.getAllGenres();                //PASS
-        return ResponseEntity.ok().body(continentes);
+        List<GenreDTO> genres = this.genreService.getAllGenres();                //PASS
+        return ResponseEntity.ok().body(genres);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<GenreDTO> getContById(@PathVariable Long id) {                     //PASS
-        GenreDTO continente = this.genreService.getGenreById((id));
-        return ResponseEntity.ok().body(continente);
+        GenreDTO genre = this.genreService.getGenreById((id));
+        return ResponseEntity.ok().body(genre);
     }
 
     @PutMapping("/{id}")                                                                          //PASS

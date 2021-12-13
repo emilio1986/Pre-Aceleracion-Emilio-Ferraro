@@ -20,6 +20,7 @@ public class CharacterMapper {
         this.movieMapper = movieMapper;
     }
 
+
     public CharacterEntity characterDTO2Entity(CharacterDTO dto) {
 
         CharacterEntity entity = new CharacterEntity();
@@ -27,6 +28,15 @@ public class CharacterMapper {
         entity.setName(dto.getName());
         entity.setAge(dto.getAge());
         entity.setHistory(dto.getHistory());
+        entity.setWeight(dto.getWeight());
+        return entity;
+    }
+
+    public CharacterEntity characterBasicDTO2Entity(CharacterBasicDTO dto) {
+
+        CharacterEntity entity = new CharacterEntity();
+        entity.setImage(dto.getImage());
+        entity.setName(dto.getName());
         return entity;
     }
 
@@ -39,11 +49,22 @@ public class CharacterMapper {
         dto.setName(entity.getName());
         dto.setAge(entity.getAge());
         dto.setHistory(entity.getHistory());
+        dto.setWeight(entity.getWeight());
         if (loadMovies) {
 
             List<MovieDTO> moviesDTO = this.movieMapper.movieEntityList2DTOList(entity.getMovies(), false);
             dto.setMovies(moviesDTO);
         }
+        return dto;
+
+    }
+
+    public CharacterBasicDTO characterEntity2BasicDTO(CharacterEntity entity, boolean loadMovies) {                             //pasar en false paraq corte la carga
+
+        CharacterBasicDTO dto = new CharacterBasicDTO();
+        dto.setId(entity.getId());
+        dto.setImage(entity.getImage());
+        dto.setName(entity.getName());
         return dto;
 
     }
@@ -99,8 +120,8 @@ public class CharacterMapper {
         for (CharacterEntity entity : entities) {
             basicDTO = new CharacterBasicDTO();
             basicDTO.setId(entity.getId());
-            basicDTO.setDenominacion(entity.getName());
-            basicDTO.setImagen(entity.getImage());
+            basicDTO.setName(entity.getName());
+            basicDTO.setImage(entity.getImage());
             dtos.add(basicDTO);
         }
         return dtos;
@@ -114,8 +135,8 @@ public class CharacterMapper {
         for (CharacterEntity entity : entities) {
             basicDTO = new CharacterBasicDTO();
             basicDTO.setId(entity.getId());
-            basicDTO.setDenominacion(entity.getName());
-            basicDTO.setImagen(entity.getImage());
+            basicDTO.setName(entity.getName());
+            basicDTO.setImage(entity.getImage());
             dtos.add(basicDTO);
         }
         return dtos;
