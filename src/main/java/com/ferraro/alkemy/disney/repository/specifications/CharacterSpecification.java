@@ -1,8 +1,8 @@
 package com.ferraro.alkemy.disney.repository.specifications;
 
-import com.ferraro.alkemy.disney.dto.IconFiltersDTO;
-import com.ferraro.alkemy.disney.entity.CiudadEntity;
-import com.ferraro.alkemy.disney.entity.IconEntity;
+import com.ferraro.alkemy.disney.dto.CharacterFiltersDTO;
+import com.ferraro.alkemy.disney.entity.CharacterEntity;
+import com.ferraro.alkemy.disney.entity.MovieEntity;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
@@ -12,15 +12,13 @@ import javax.persistence.criteria.Expression;
 import javax.persistence.criteria.Join;
 import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.Predicate;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class IconSpecification {
+public class CharacterSpecification {
 
-    public Specification<IconEntity> getByFilters(IconFiltersDTO filtersDTO) {
+    public Specification<CharacterEntity> getByFilters(CharacterFiltersDTO filtersDTO) {
         return (root, query, criteriaBuilder) -> {
 
             List<javax.persistence.criteria.Predicate> predicates = new ArrayList<>();
@@ -29,33 +27,34 @@ public class IconSpecification {
 
                 predicates.add(
                         criteriaBuilder.like(
-                                criteriaBuilder.lower(root.get("denominacion")),
+                                criteriaBuilder.lower(root.get("name")),
                                 "%" + filtersDTO.getName().toLowerCase() + "%"
                         )
                 );
             }
 
-            if (StringUtils.hasLength(filtersDTO.getDate())) {
-
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-                LocalDate date = LocalDate.parse(filtersDTO.getDate(), formatter);
+            if (StringUtils.hasLength(filtersDTO.getAge())) {
 
                 predicates.add(
-
-                        criteriaBuilder.equal(root.<LocalDate>get("fechaCreacion"), date));
+                        criteriaBuilder.like(
+                                criteriaBuilder.lower(root.get("age")),
+                                "%" + filtersDTO.getAge().toLowerCase() + "%"
+                        )
+                );
             }
 
-            if (!CollectionUtils.isEmpty(filtersDTO.getCities())) {
-                Join<CiudadEntity, IconEntity> join = root.join("ciudades", JoinType.INNER);
+
+            if (!CollectionUtils.isEmpty(filtersDTO.getMovies())) {
+                Join<MovieEntity, CharacterEntity> join = root.join("movies", JoinType.INNER);
                 Expression<String> citiesId = join.get("id");
-                predicates.add(citiesId.in(filtersDTO.getCities()));
+                predicates.add(citiesId.in(filtersDTO.getMovies()));
             }
 
 
-            query.distinct(true); //elimina valores duplicados
+            query.distinct(true);       //delete  duplicates
 
 
-            String orderByField = "denominacion";
+            String orderByField = "name";
             query.orderBy(
                     filtersDTO.isASC() ?     //IF INLINE
                             criteriaBuilder.asc(root.get(orderByField)) :

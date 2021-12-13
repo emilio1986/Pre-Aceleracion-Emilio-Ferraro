@@ -8,18 +8,18 @@ import java.util.Set;
 
 @Getter
 @Setter
-public class IconFiltersDTO {
+public class CharacterFiltersDTO {
 
     private String name;
-    private String date;
-    private Set<Long> cities;
+    private String age;
+    private Set<Long> movies;
     private String order;
 
 
-    public IconFiltersDTO(String name, String date, Set<Long> cities, String order) {
+    public CharacterFiltersDTO(String name, String age, Set<Long> movies, String order) {
         this.name = name;
-        this.cities = cities;
-        this.date = date;
+        this.movies = movies;
+        this.age = age;
         this.order = order;
     }
 

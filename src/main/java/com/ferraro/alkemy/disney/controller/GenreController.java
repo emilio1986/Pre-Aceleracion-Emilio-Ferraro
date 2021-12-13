@@ -1,7 +1,7 @@
 package com.ferraro.alkemy.disney.controller;
 
-import com.ferraro.alkemy.disney.dto.ContinenteDTO;
-import com.ferraro.alkemy.disney.service.ContinenteService;
+import com.ferraro.alkemy.disney.dto.GenreDTO;
+import com.ferraro.alkemy.disney.service.GenreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,34 +13,34 @@ import java.util.List;
 
 @RequestMapping("continentes")
 
-public class ContinenteController {
+public class GenreController {
 
     @Autowired
-    private ContinenteService continenteService; //Interfaz
+    private GenreService genreService; //Interfaz
 
     //tipo de solicitud
     @PostMapping
-    public ResponseEntity<ContinenteDTO> save(@RequestBody ContinenteDTO continente) {              //PASS
-        ContinenteDTO continenteGuardado = continenteService.save(continente);
+    public ResponseEntity<GenreDTO> save(@RequestBody GenreDTO continente) {              //PASS
+        GenreDTO continenteGuardado = genreService.save(continente);
         return ResponseEntity.status(HttpStatus.CREATED).body(continenteGuardado);
     }
 
     @GetMapping
-    public ResponseEntity<List<ContinenteDTO>> getAll() {
+    public ResponseEntity<List<GenreDTO>> getAll() {
 
-        List<ContinenteDTO> continentes = this.continenteService.getAllContinentes();                //PASS
+        List<GenreDTO> continentes = this.genreService.getAllGenres();                //PASS
         return ResponseEntity.ok().body(continentes);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ContinenteDTO> getContById(@PathVariable Long id) {                     //PASS
-        ContinenteDTO continente = this.continenteService.getContinenteById((id));
+    public ResponseEntity<GenreDTO> getContById(@PathVariable Long id) {                     //PASS
+        GenreDTO continente = this.genreService.getGenreById((id));
         return ResponseEntity.ok().body(continente);
     }
 
     @PutMapping("/{id}")                                                                          //PASS
-    public ResponseEntity<ContinenteDTO> update(@PathVariable Long id, @RequestBody ContinenteDTO continente) {
-        ContinenteDTO result = this.continenteService.update(id, continente);
+    public ResponseEntity<GenreDTO> update(@PathVariable Long id, @RequestBody GenreDTO continente) {
+        GenreDTO result = this.genreService.update(id, continente);
         return ResponseEntity.ok(result);
     }
 
@@ -52,7 +52,7 @@ public class ContinenteController {
 
     @DeleteMapping("/{id}")                                                                     //PASS
     public ResponseEntity<Void> delete(@PathVariable Long id) {
-        this.continenteService.delete(id);
+        this.genreService.delete(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 
     }

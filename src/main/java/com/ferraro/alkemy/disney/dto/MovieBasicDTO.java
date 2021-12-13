@@ -12,11 +12,11 @@ import java.util.Set;
 
 
 @NoArgsConstructor
-public class CiudadBasicDTO {
+public class MovieBasicDTO {
     private Long id;
     private String title;
     private String imageUrl;
-    private Long cantHabitantes;
+    private String date;
 }
 
 

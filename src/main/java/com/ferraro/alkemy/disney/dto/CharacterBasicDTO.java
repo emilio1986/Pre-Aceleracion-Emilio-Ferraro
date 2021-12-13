@@ -6,7 +6,7 @@ import lombok.Setter;
 @Getter
 @Setter
 
-public class IconBasicDTO {
+public class CharacterBasicDTO {
 
     private Long id;
     private String imagen;

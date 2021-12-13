@@ -1,8 +1,8 @@
 package com.ferraro.alkemy.disney.controller;
 
-import com.ferraro.alkemy.disney.dto.CiudadBasicDTO;
-import com.ferraro.alkemy.disney.dto.CiudadDTO;
-import com.ferraro.alkemy.disney.service.CiudadService;
+import com.ferraro.alkemy.disney.dto.MovieBasicDTO;
+import com.ferraro.alkemy.disney.dto.MovieDTO;
+import com.ferraro.alkemy.disney.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,50 +12,50 @@ import java.util.List;
 
 @RestController
 @RequestMapping("ciudades")
-public class CiudadController {
+public class MovieController {
 
 @Autowired
-    private CiudadService ciudadService; //Interfaz
+    private MovieService movieService; //Interfaz
 
     @Autowired
-    public CiudadController(CiudadService ciudadService) {
+    public MovieController(MovieService movieService) {
 
-        this.ciudadService = ciudadService;
+        this.movieService = movieService;
     }
 
 
     @GetMapping("/all")
-    public ResponseEntity<List<CiudadBasicDTO>> getAll() {
-        List<CiudadBasicDTO> ciudades = this.ciudadService.getAll();               //PASS
+    public ResponseEntity<List<MovieBasicDTO>> getAll() {
+        List<MovieBasicDTO> ciudades = this.movieService.getAll();               //PASS
         return ResponseEntity.ok(ciudades);
     }
 
 
     @GetMapping("/{id}")                                                            //PASS
-    public ResponseEntity<CiudadDTO> getDetailsById(@PathVariable Long id) {
-        CiudadDTO ciudad = this.ciudadService.getDetailsById(id);
+    public ResponseEntity<MovieDTO> getDetailsById(@PathVariable Long id) {
+        MovieDTO ciudad = this.movieService.getDetailsById(id);
         return ResponseEntity.ok(ciudad);
     }
 
 
     @PostMapping
-    public ResponseEntity<CiudadDTO> save(@RequestBody CiudadDTO ciudad) {
-        CiudadDTO result = this.ciudadService.save(ciudad);
+    public ResponseEntity<MovieDTO> save(@RequestBody MovieDTO ciudad) {
+        MovieDTO result = this.movieService.save(ciudad);
         return ResponseEntity.status((HttpStatus.CREATED)).body(result);           //PASS
 
     }
 
     @PostMapping("/{id}/icons/{idIcon}")
     public ResponseEntity<Void> addIcon(@PathVariable Long id, @PathVariable Long idIcon) {    //PASS
-        this.ciudadService.addICon(id, idIcon);
+        this.movieService.addCharacter(id, idIcon);
         return ResponseEntity.status(HttpStatus.CREATED).build();
 
     }
 
 
     @PutMapping("/{id}")                                                           //PASS
-    public ResponseEntity<CiudadDTO> update(@PathVariable Long id, @RequestBody CiudadDTO ciudad) {
-        CiudadDTO result = this.ciudadService.update(id, ciudad);
+    public ResponseEntity<MovieDTO> update(@PathVariable Long id, @RequestBody MovieDTO ciudad) {
+        MovieDTO result = this.movieService.update(id, ciudad);
         return ResponseEntity.ok().body(result);
 
     }
@@ -63,14 +63,14 @@ public class CiudadController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {                     //RESOLVER CASCADA CONTINENTE
-        this.ciudadService.delete(id);
+        this.movieService.delete(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 
     }
 
     @DeleteMapping("/{id}/icons/{idIcon}")                                           //CHEQUEAR
     public ResponseEntity<Void> delete(@PathVariable Long id, @PathVariable Long idIcon) {
-        this.ciudadService.removeIcon(id, idIcon);
+        this.movieService.removeCharacter(id, idIcon);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
