@@ -1,9 +1,7 @@
 package com.ferraro.alkemy.disney.mapper;
 
 
-import com.ferraro.alkemy.disney.dto.MovieDTO;
 import com.ferraro.alkemy.disney.dto.GenreDTO;
-import com.ferraro.alkemy.disney.entity.MovieEntity;
 import com.ferraro.alkemy.disney.entity.GenreEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -52,15 +50,6 @@ public class GenreMapper {
             //dto.setCiudades(ciudadesDTO);
         }
         return dto;
-    }
-
-    public List<MovieDTO> moviesEntityList2DTOList(List<MovieEntity> entities) {        //Agregado ahora
-        List<MovieDTO> dtos = new ArrayList<MovieDTO>();                                           //Agregado ahora
-        for (MovieEntity entity : entities) {                                                 //Agregado ahora
-            //transformo la entityCiudad  a DtoCiudad por cada elem d la lista|             //Agregado ahora
-            dtos.add(this.movieMapper.movieEntity2DTO(entity, true));         //Agregado ahora
-        }
-        return dtos; // devuelvo una lista de DTOS                                    //agah
     }
 
 

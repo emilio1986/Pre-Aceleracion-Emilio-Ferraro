@@ -1,6 +1,5 @@
 package com.ferraro.alkemy.disney.controller;
 
-import com.ferraro.alkemy.disney.dto.MovieBasicDTO;
 import com.ferraro.alkemy.disney.dto.MovieDTO;
 import com.ferraro.alkemy.disney.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,7 @@ import java.util.List;
 @RequestMapping("ciudades")
 public class MovieController {
 
-@Autowired
+    @Autowired
     private MovieService movieService; //Interfaz
 
     @Autowired
@@ -25,8 +24,8 @@ public class MovieController {
 
 
     @GetMapping("/all")
-    public ResponseEntity<List<MovieBasicDTO>> getAll() {
-        List<MovieBasicDTO> ciudades = this.movieService.getAll();               //PASS
+    public ResponseEntity<List<MovieDTO>> getAll() {
+        List<MovieDTO> ciudades = this.movieService.getAll();               //PASS
         return ResponseEntity.ok(ciudades);
     }
 
@@ -45,7 +44,7 @@ public class MovieController {
 
     }
 
-    @PostMapping("/{id}/characters/{idCharacter}")           //ojo los nombres->ICon
+    @PostMapping("/{id}/characters/{idCharacter}")
     public ResponseEntity<Void> addCharacter(@PathVariable Long id, @PathVariable Long idCharacter) {    //PASS
         this.movieService.addCharacter(id, idCharacter);
         return ResponseEntity.status(HttpStatus.CREATED).build();

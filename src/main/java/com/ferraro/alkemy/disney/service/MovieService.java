@@ -10,7 +10,7 @@ public interface MovieService {
 
     MovieDTO getDetailsById(Long id);
 
-    List<MovieBasicDTO> getAll();
+    List<MovieDTO> getAll();
 
     MovieDTO save(MovieDTO movieDTO);
 
