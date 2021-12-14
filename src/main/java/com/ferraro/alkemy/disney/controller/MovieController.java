@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("ciudades")
+@RequestMapping("movies")
 public class MovieController {
 
     @Autowired
-    private MovieService movieService; //Interfaz
+    private MovieService movieService;
 
     @Autowired
     public MovieController(MovieService movieService) {
@@ -25,12 +25,12 @@ public class MovieController {
 
     @GetMapping("/all")
     public ResponseEntity<List<MovieDTO>> getAll() {
-        List<MovieDTO> ciudades = this.movieService.getAll();               //PASS
+        List<MovieDTO> ciudades = this.movieService.getAll();                                            //PASS
         return ResponseEntity.ok(ciudades);
     }
 
 
-    @GetMapping("/{id}")                                                            //PASS
+    @GetMapping("/{id}")                                                                                 //PASS
     public ResponseEntity<MovieDTO> getDetailsById(@PathVariable Long id) {
         MovieDTO ciudad = this.movieService.getDetailsById(id);
         return ResponseEntity.ok(ciudad);
@@ -40,7 +40,7 @@ public class MovieController {
     @PostMapping
     public ResponseEntity<MovieDTO> save(@RequestBody MovieDTO ciudad) {
         MovieDTO result = this.movieService.save(ciudad);
-        return ResponseEntity.status((HttpStatus.CREATED)).body(result);           //PASS
+        return ResponseEntity.status((HttpStatus.CREATED)).body(result);                                 //PASS
 
     }
 
@@ -52,7 +52,7 @@ public class MovieController {
     }
 
 
-    @PutMapping("/{id}")                                                           //PASS
+    @PutMapping("/{id}")                                                                                  //PASS
     public ResponseEntity<MovieDTO> update(@PathVariable Long id, @RequestBody MovieDTO ciudad) {
         MovieDTO result = this.movieService.update(id, ciudad);
         return ResponseEntity.ok().body(result);
@@ -61,15 +61,15 @@ public class MovieController {
 
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {                     //RESOLVER CASCADA CONTINENTE
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
         this.movieService.delete(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 
     }
 
-    @DeleteMapping("/{id}/icons/{idIcon}")                                           //CHEQUEAR
-    public ResponseEntity<Void> delete(@PathVariable Long id, @PathVariable Long idIcon) {
-        this.movieService.removeCharacter(id, idIcon);
+    @DeleteMapping("/{id}/movies/{idCharacter}")
+    public ResponseEntity<Void> delete(@PathVariable Long id, @PathVariable Long idCharacter) {
+        this.movieService.removeCharacter(id, idCharacter);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 

@@ -73,8 +73,7 @@ public class CharacterMapper {
 
         entity.setImage(characterDTO.getImage());
         entity.setName(characterDTO.getName());
-        //  entity.setFechaCreacion(this.string2LocalDate(characterDTO.getFechaCreacion()));
-        // FALTA altura en BD-> entity.setAltura(iconDTO.getAltua());
+
         entity.setHistory(characterDTO.getHistory());
     }
 

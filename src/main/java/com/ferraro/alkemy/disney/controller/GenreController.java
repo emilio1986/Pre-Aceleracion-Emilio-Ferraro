@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 
-@RequestMapping("continentes")
+@RequestMapping("genres")
 
 public class GenreController {
 

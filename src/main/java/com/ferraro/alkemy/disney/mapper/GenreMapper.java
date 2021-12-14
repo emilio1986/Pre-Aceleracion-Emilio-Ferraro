@@ -46,8 +46,7 @@ public class GenreMapper {
         dto.setId(entity.getId());
         dto.setName(entity.getName());
         if (loadCiudades) {
-            //List<CiudadDTO> ciudadesDTO = this.ciudadMapper.continenteEntityList2DTO(entity.getCiudades(), true);
-            //dto.setCiudades(ciudadesDTO);
+
         }
         return dto;
     }

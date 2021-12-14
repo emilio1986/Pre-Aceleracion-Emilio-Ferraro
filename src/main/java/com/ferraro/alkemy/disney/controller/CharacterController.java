@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+
 import java.util.List;
 import java.util.Set;
 
@@ -33,7 +34,7 @@ public class CharacterController {
 
 
     @PutMapping("/{id}")
-    public ResponseEntity<CharacterDTO> update(@PathVariable Long id, @RequestBody CharacterDTO icon) {
+    public ResponseEntity<CharacterDTO> update(  @PathVariable Long id, @RequestBody CharacterDTO icon) {
         CharacterDTO result = this.characterService.update(id, icon);
         return ResponseEntity.ok().body(result);
 
@@ -63,11 +64,7 @@ public class CharacterController {
         return ResponseEntity.ok(icons);
     }
 
-    //@DeleteMapping("/{id}/ciudad/{idCiudad}")
-    //public ResponseEntity<Void> delete(@PathVariable Long id, @PathVariable Long idCiudad) {
-    //  this.iconService.removeCiudad(id, idCiudad);
-    //return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
-    //}
+
 
 
     @GetMapping("/all")
